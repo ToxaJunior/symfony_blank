@@ -49,9 +49,9 @@ class Feedback
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime")
+     * @ORM\Column(name="date", type="datetime")
      */
-    private $createdAt;
+    private $date;
 
     /**
      * @ORM\ManyToOne(targetEntity="File")
@@ -141,17 +141,17 @@ class Feedback
     /**
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getDate()
     {
-        return $this->createdAt;
+        return $this->date;
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param \DateTime date
      */
-    public function setCreatedAt($createdAt)
+    public function setDate($date)
     {
-        $this->createdAt = $createdAt;
+        $this->date = $date;
     }
 
     /**
@@ -159,7 +159,7 @@ class Feedback
      */
     public function PrePersist()
     {
-        $this->createdAt = new \DateTime();
+
     }
 
     /**

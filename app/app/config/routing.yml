@@ -2,9 +2,3 @@ test:
     resource: "@TestBundle/Controller/"
     type:     annotation
     prefix:   /
-
-feedback_success:
-    path: /success
-    defaults:
-        _controller:  FrameworkBundle:Template:template
-        template:     'TestBundle:Default:feedback_success.html.twig'
