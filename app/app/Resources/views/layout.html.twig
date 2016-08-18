@@ -7,9 +7,8 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/bundles/test/css/datepicker.css') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,23 +19,21 @@
 <body>
 {% block feedback %}
 {% endblock %}
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-{#<script>#}
-    {#jQuery(document).ready(function() {#}
-        {#$('.js-datepicker').datepicker();#}
-    {#});#}
-{#</script>#}
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="{{ asset('/bundles/test/js/bootstrap-datepicker.js') }}"></script>
+
 <script>
-    $(document).ready(function() {
-        $('.js-datepicker').datepicker({
-            format: 'd-m-Y'
+
+    $(function() {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '2016/01/01',
+            autoclose: true
         });
     });
+
 </script>
+
 </body>
 </html>

@@ -1,33 +1,28 @@
-{#{% extends '::layout.html.twig' %}#}
-{#{% block feedback %}#}
-    {#<div class="container">#}
-        {#<div class="row">#}
-            {#<div class="col-md-6">#}
-                {#{{ form_start(form, {'action': '/', 'method': 'POST'}) }}#}
-                    {#<div class="form-group">#}
-                        {#{{ form_row(form.name) }}#}
-                    {#</div>#}
-                    {#<div class="form-group">#}
-                        {#{{ form_row(form.age) }}#}
-                    {#</div>#}
-                    {#<div class="form-group">#}
-                        {#{{ form_row(form.email) }}#}
-                    {#</div>#}
-                    {#<div class="form-group">#}
-                        {#{{ form_row(form.date) }}#}
-                    {#</div>#}
-                    {#<div class="form-group">#}
-                        {#{{ form_row(form.file) }}#}
-                    {#</div>#}
+{% extends '::layout.html.twig' %}
+{% block feedback %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.name) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.age) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.date) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.file) }}
+                    </div>
 
-                    {#{{ form_row(form.save) }}#}
-
-                    {#<button type="submit" class="btn btn-success">Отправить</button>#}
-                {#{{ form_end(form) }}#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#{% endblock %}#}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

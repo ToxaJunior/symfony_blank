@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Feedback
 {
+    const PATH_TO_UPLOAD = '/var/www/app/web/upload/';
     /**
      * @var int
      *
@@ -49,13 +50,14 @@ class Feedback
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="File")
-     * @ORM\JoinColumn(name="file_id", referencedColumnName="id", nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="file", type="string", length=255)
      */
     protected $file;
 
@@ -159,6 +161,18 @@ class Feedback
      */
     public function PrePersist()
     {
+        $this->upload();
+    }
+
+    public function upload(){
+
+        $file = $this->getFile();
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        $file->move(
+            self::PATH_TO_UPLOAD,
+            $fileName);
+
+        $this->setFile($fileName);
 
     }
 
