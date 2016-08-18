@@ -33,14 +33,16 @@ class DefaultController extends Controller
                 'class' => 'form-control',
                 'placeholder' => 'введите email'
             )))
-            ->add('date', DateType::class, array(
-                'widget' => 'single_text',
-                'html5' => false,
-                'attr' => ['class' => 'js-datepicker'],
-            ))
+            ->add('date', DateType::class,
+                array(
+//                'widget' => 'single_text',
+//                'html5' => false,
+//                'attr' => array('class' => 'js-datepicker'),
+                )
+            )
          //   ->add('file', FileType::class)
-//            ->add('save', SubmitType::class, array('label' => 'Submit',
-//                'attr' => array('class' => 'btn-success')))
+            ->add('save', SubmitType::class, array('label' => 'Submit',
+                'attr' => array('class' => 'btn-success')))
             ->getForm();
 
         //var_dump($form->getData());die();
@@ -53,8 +55,8 @@ class DefaultController extends Controller
              $em->persist($feedback);
              $em->flush();
 
-            return $this->redirectToRoute('feedback_success'
-            );
+//            return $this->redirectToRoute('feedback_success'
+//            );
         }
 
         return $this->render('TestBundle:Default:index.html.twig', array(
